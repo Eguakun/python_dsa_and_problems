@@ -38,7 +38,7 @@ def getCoordDirection(coord1, coord2):
     elif x2 == x1:
         if y2 > y1:
             return UP
-        elif y2 > y1:
+        elif y2 < y1:
             return DOWN
     return ''
 
