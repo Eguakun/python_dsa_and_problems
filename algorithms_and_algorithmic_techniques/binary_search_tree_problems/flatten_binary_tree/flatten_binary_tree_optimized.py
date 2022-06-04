@@ -31,7 +31,7 @@ def flattenTree(node):
     else:
         rightSubtreeLeftMost, rightSubtreeRightMost = flattenTree(node.right)
         connectNodes(node, rightSubtreeLeftMost)
-        rightMost = rightSubtreeRighttMost
+        rightMost = rightSubtreeRightMost
 
     return [leftMost, rightMost]
 
