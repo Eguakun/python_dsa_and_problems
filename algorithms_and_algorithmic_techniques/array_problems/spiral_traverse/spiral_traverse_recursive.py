@@ -53,9 +53,17 @@ def spiralFill(array, startRow, endRow, startCol, endCol, result):
         result.append(array[row][endCol])
 
     for col in reversed(range(startCol, endCol)):
+            # Handle the edge case when there's a single row
+            # in the middle of the matrix. In this case, we don't
+            # want to double count the values in this row, which
+            # weve already counted in the first for loop above.
         result.append(array[endRow][col])
 
     for row in reversed(range(startRow + 1, endRow)):
+            # Handle the edge case when there's a single column
+            # in the middle of the matrix. In this case, we don't
+            # want to double count the values in this column, which
+            # weve already counted in the second for loop above.
         result.append(array[row][startCol])
 
     spiralFill(array, startRow + 1, endRow - 1, startCol + 1, endCol - 1, result)
