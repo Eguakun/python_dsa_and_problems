@@ -39,9 +39,9 @@
 # and if we werent iterative would be O(1) and recursive would be O(n) due to calls on the call stack
 
 
-
 def spiralTraverse(array):
     result = []
+    
     startRow, endRow = 0, len(array) - 1
     startCol, endCol = 0, len(array[0]) - 1
 
@@ -53,9 +53,21 @@ def spiralTraverse(array):
             result.append(array[row][endCol])
 
         for col in reversed(range(startCol, endCol)):
+            # Handle the edge case when there's a single row
+            # in the middle of the matrix. In this case, we don't
+            # want to double count the values in this row, which
+            # weve already counted in the first for loop above.
+            if startRow == endRow:
+                break
             result.append(array[endRow][col])
 
         for row in reversed(range(startRow + 1, endRow)):
+            # Handle the edge case when there's a single column
+            # in the middle of the matrix. In this case, we don't
+            # want to double count the values in this column, which
+            # weve already counted in the second for loop above.
+            if startCol == endCol:
+                break
             result.append(array[row][startCol])
 
         startRow += 1
@@ -63,6 +75,7 @@ def spiralTraverse(array):
         startCol += 1
         endCol -= 1
     return result
+            
 
 
 
