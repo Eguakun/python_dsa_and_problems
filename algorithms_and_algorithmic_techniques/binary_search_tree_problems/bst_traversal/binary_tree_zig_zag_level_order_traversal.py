@@ -42,6 +42,12 @@ So for each stack what im going to do is:
 '''
 
 
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
     def zigzagLevelOrder(self, root):
         if root is None:
@@ -53,23 +59,23 @@ class Solution:
 
         while stack_odd or stack_even:
             while stack_odd:
-                root.s1.pop()
+                root = stack_odd.pop()
                 level.append(root.val)
                 if root.left:
                     stack_even.append(root.left)
                 if root.right:
                     stack_even.append(root.right)
+            result.append(level)
+            level = []
+            while stack_even:
+                root = stack_even.pop()
+                level.append(root.val)
+                if root.right:
+                    stack_odd.append(root.right)
+                if root.left:
+                    stack_odd.append(root.left)
+            if level != []:
                 result.append(level)
                 level = []
-                while stack_even:
-                    root = stack_even.pop()
-                    level.append(root.val)
-                    if root.right:
-                        stack_odd.append(root.right)
-                    if root.left:
-                        stack_odd.append(root.left)
-                if level != []:
-                    result.append(level)
-                    level = []
         return result
-
+        
