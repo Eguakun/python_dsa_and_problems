@@ -9,3 +9,5 @@ def find_ancestors(root, target):
         return True
     else:
         return False
+
+# Time complexity: O(n) where n is ndoes in the binary tree
