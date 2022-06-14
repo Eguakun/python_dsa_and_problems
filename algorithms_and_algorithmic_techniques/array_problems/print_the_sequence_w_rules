@@ -1,0 +1,29 @@
+    n1, n2 , n = map(int, input().strip().split())
+    res = []
+    res.append(1)
+    cur = 2
+    s = set()
+    idx = 0
+    while len(res) != n:
+        for i in range(idx-1, -1, -1):
+            val1 = res[idx]*n1 - res[i]*n2
+            val2 = res[i]*n1 - res[idx]*n2
+            if val1 >= cur:
+                s.add(val1)
+            if val2 >= cur:
+                s.add(val2)
+        val = (n1-n2)*res[idx]
+        if val >= cur:
+            s.add(val)
+        while True:
+            if cur in s:
+                s.discard(cur)
+                cur += 1
+            else:
+                res.append(cur)
+                cur += 1
+                break
+        idx += 1
+    for val in res:
+        print(val, end = ' ')
+    print()
