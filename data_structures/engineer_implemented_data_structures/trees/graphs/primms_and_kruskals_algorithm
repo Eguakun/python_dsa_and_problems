@@ -1,0 +1,13 @@
+#djisktras algorithm  is primarily used for directed and weighted graphs, problems where you find shortest lowest cost path from starting vertex to destination vertex 
+
+#djisktras fails on graphs with negative edges 
+
+# use floyd warshall for negative edges graphs 
+
+#primms algorithm is primarily used for undirected weighted graphs to find the lowest cost path to connect all vertices in the graph 
+
+# How to approach all pair shortest path problems:
+# - Sparse Graph with Negative Edge Weights - O(V^2logV): Johnson's Algo
+# - Sparse graph with no negative Weights - O(V^2logV): Dijskstra's Algo
+# - Dense Graphs- O(V^2): Floyd Warshall 
+
